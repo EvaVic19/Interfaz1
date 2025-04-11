@@ -9,24 +9,35 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
+<!-- Cuerpo principal del documento -->
 <body class="bg-light">
+    <!-- Contenedor principal con espacio interno (padding) -->
   <div class="container py-4">
+       <!-- Título principal centrado -->
     <h2 class="text-center mb-4">Aplicación de Notas con Paginación</h2>
 
+  <!-- Formulario para ingresar una nueva nota -->
     <div class="mb-3">
+      <!-- Campo de texto para el título -->
       <input type="text" id="titulo" class="form-control mb-2" placeholder="Título de la nota">
+           <!-- Área de texto para la descripción -->
       <textarea id="descripcion" class="form-control mb-2" placeholder="Descripción de la nota"></textarea>
+
+        <!-- Selector de categoría con opciones -->
       <select id="categoria" class="form-select mb-2">
         <option value="">Seleccione una categoría</option>
         <option value="Trabajo">Trabajo</option>
         <option value="Personal">Personal</option>
         <option value="Estudio">Estudio</option>
       </select>
+
+        <!-- Selector de categoría con opciones -->
       <button class="btn btn-primary w-100" onclick="agregarNota()">Agregar Nota</button>
     </div>
-
+ <!-- Encabezado de la sección de notas + selector de cantidad por página -->
     <div class="d-flex justify-content-between align-items-center mb-2">
       <h4>Notas</h4>
+      <!-- Selector para elegir cuántas notas mostrar por página -->
       <select id="cantidadNotas" class="form-select w-auto" onchange="cambiarNotasPorPagina()">
         <option value="3">3 por página</option>
         <option value="5" selected>5 por página</option>
@@ -34,8 +45,8 @@
       </select>
     </div>
 
-    <table class="table table-striped">
-      <thead>
+    <table class="table table-striped">    <!-- Tabla que mostrará las notas -->
+      <thead> <!-- Encabezados de la tabla -->
         <tr>
           <th>Título</th>
           <th>Descripción</th>
@@ -44,11 +55,13 @@
           <th>Acciones</th>
         </tr>
       </thead>
-      <tbody id="tablaNotas"></tbody>
+      <tbody id="tablaNotas"></tbody><!-- Cuerpo de la tabla donde se insertarán las filas dinámicamente -->
     </table>
 
+      <!-- Contenedor para los botones de paginación -->
     <div id="paginacionNotas" class="d-flex justify-content-center mt-3"></div>
 
+      <!-- Botón para eliminar todas las notas -->
     <div class="d-flex justify-content-end mb-2">
       <button class="btn btn-danger" onclick="eliminarTodasLasNotas()">
         Eliminar todas las notas
